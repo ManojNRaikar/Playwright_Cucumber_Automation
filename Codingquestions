@@ -1,0 +1,135 @@
+let str = "ABCDEFG", rev = "";
+for (let i = str.length - 1; i >= 0; i--) rev += str[i];
+console.log(rev);
+``` |  
+```ts
+let str: string = "ABCDEFG", rev: string = "";
+for (let i: number = str.length - 1; i >= 0; i--) rev += str[i];
+console.log(rev);
+``` |
+
+---
+
+| 2️⃣ | Reverse + Number | `G1 F2 E3 D4 C5 B6 A7` | Add counter in reverse loop |  
+```js
+let str = "ABCDEFG", res = "", c = 1;
+for (let i = str.length - 1; i >= 0; i--) res += str[i] + c++ + " ";
+console.log(res.trim());
+``` |  
+```ts
+let str: string = "ABCDEFG", res: string = "", c: number = 1;
+for (let i: number = str.length - 1; i >= 0; i--) res += str[i] + c++ + " ";
+console.log(res.trim());
+``` |
+
+---
+
+| 3️⃣ | Reverse + Pair | `G1A F2B E3C D4D C5E B6F A7G` | Two pointers (i from end, j from start) |  
+```js
+let str = "ABCDEFG", res = "", c = 1;
+for (let i = str.length - 1, j = 0; i >= 0; i--, j++) res += str[i] + c++ + str[j] + " ";
+console.log(res.trim());
+``` |  
+```ts
+let str: string = "ABCDEFG", res: string = "", c: number = 1;
+for (let i: number = str.length - 1, j: number = 0; i >= 0; i--, j++) res += str[i] + c++ + str[j] + " ";
+console.log(res.trim());
+``` |
+
+---
+
+| 4️⃣ | Count vowels | `"Automation" → 5` | Check each char in `"aeiouAEIOU"` |  
+```js
+let str = "Automation", c = 0;
+for (let i = 0; i < str.length; i++) if ("aeiouAEIOU".includes(str[i])) c++;
+console.log("Vowels:", c);
+``` |  
+```ts
+let str: string = "Automation"; let c: number = 0;
+for (let i: number = 0; i < str.length; i++) if ("aeiouAEIOU".includes(str[i])) c++;
+console.log("Vowels:", c);
+``` |
+
+---
+
+| 5️⃣ | Palindrome check | `"madam"` → Palindrome | Reverse & compare |  
+```js
+let str = "madam", rev = "";
+for (let i = str.length - 1; i >= 0; i--) rev += str[i];
+console.log(str === rev ? "Palindrome" : "Not");
+``` |  
+```ts
+let str: string = "madam", rev: string = "";
+for (let i: number = str.length - 1; i >= 0; i--) rev += str[i];
+console.log(str === rev ? "Palindrome" : "Not");
+``` |
+
+---
+
+| 6️⃣ | Char frequency | `"banana" → {b:1,a:3,n:2}` | Use object to count |  
+```js
+let str = "banana", freq = {};
+for (let ch of str) freq[ch] = (freq[ch] || 0) + 1;
+console.log(freq);
+``` |  
+```ts
+let str: string = "banana", freq: { [k: string]: number } = {};
+for (let ch of str) freq[ch] = (freq[ch] || 0) + 1;
+console.log(freq);
+``` |
+
+---
+
+| 7️⃣ | Remove duplicates | `"programming" → progamin` | Append if not exists |  
+```js
+let str = "programming", res = "";
+for (let ch of str) if (!res.includes(ch)) res += ch;
+console.log(res);
+``` |  
+```ts
+let str: string = "programming", res: string = "";
+for (let ch of str) if (!res.includes(ch)) res += ch;
+console.log(res);
+``` |
+
+---
+
+| 8️⃣ | Swap case | `"AbCdEf" → "aBcDeF"` | Toggle case per character |  
+```js
+let str = "AbCdEf", res = "";
+for (let ch of str) res += ch === ch.toUpperCase() ? ch.toLowerCase() : ch.toUpperCase();
+console.log(res);
+``` |  
+```ts
+let str: string = "AbCdEf", res: string = "";
+for (let ch of str) res += ch === ch.toUpperCase() ? ch.toLowerCase() : ch.toUpperCase();
+console.log(res);
+``` |
+
+---
+
+| 9️⃣ | Reverse sentence words | `"I love testing" → "testing love I"` | Split → reverse loop |  
+```js
+let str = "I love testing", words = str.split(" "), res = "";
+for (let i = words.length - 1; i >= 0; i--) res += words[i] + " ";
+console.log(res.trim());
+``` |  
+```ts
+let str: string = "I love testing"; let words: string[] = str.split(" "); let res: string = "";
+for (let i: number = words.length - 1; i >= 0; i--) res += words[i] + " ";
+console.log(res.trim());
+``` |
+
+---
+
+## 💡 **Quick Loop Shortcut Memory:**
+
+| Task Type | Start | End | Increment | Keyword |
+|------------|--------|------|------------|-----------|
+| Normal order | `i = 0` | `< length` | `i++` | “forward” |
+| Reverse | `i = length - 1` | `>= 0` | `i--` | “backward” |
+| Two pointer | `i=length-1, j=0` | `i>=0` | `i--, j++` | “pairwise” |
+
+---
+
+Would you like me to make this into a **1-page PDF “String Program Revision Sheet”** (you can keep it for last-minute interview prep)?
